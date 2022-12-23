@@ -199,7 +199,7 @@ const Dashboard = () => {
           title="Yearly Sales"
           value={data && data.yearlySalesTotal}
           increase="+43%"
-          description="Since last Year"
+          description="Since last month"
           icon={
             <Traffic
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
