@@ -27,3 +27,77 @@ body,
 ::-webkit-scrollbar-track:hover {
   background: #21295c;
 }
+
+/*test de l'api meteo*/
+
+
+.app2 {
+  
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease;
+}
+
+
+
+.search-box {
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+.search-box .search-bar {
+  display: block;
+  width: 100%;
+  padding: 5px;
+
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px 16px 16px 16px;
+  margin-top: -25px;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+  
+  color: #313131;
+  font-size: 14px;
+
+  transition: 0.4s ease;
+}
+
+.search-box .search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+
+.location-box{
+  display: flex;     
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin: auto;
+  padding: 10px;
+  justify-content: center;
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.location-box .location {
+  color: #ffe3a3;
+  font-size: 14px;
+  padding: 15px;
+}
+
+.location-box .temp {
+  color: #ffe3a3;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.location-box .weather {
+  color: #ffe3a3;
+  font-size: 14px;
+  padding: 15px;
+}
