@@ -167,6 +167,7 @@ const Dashboard = () => {
 
         {/* ROW 2 */}
         <Box
+          title="Sales Overview"
           gridColumn="span 8"
           gridRow="span 3"
           sx={{

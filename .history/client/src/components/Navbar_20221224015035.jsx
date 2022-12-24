@@ -3,7 +3,6 @@ import {
   LightModeOutlined,
   DarkModeOutlined,
   Menu as MenuIcon,
-
 } from "@mui/icons-material";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
@@ -15,10 +14,17 @@ import {
   Box,
   Typography,
   IconButton,
+  InputBase,
   Toolbar,
+  Menu,
+  MenuItem,
   useTheme,
 } from "@mui/material";
 
+const api = {
+  key: "0638574d291b3e1090515ce7939cd186",
+  base: " http://api.openweathermap.org/data/2.5/"
+}
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
@@ -43,9 +49,28 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
-        </FlexBetween>       
+        </FlexBetween>
 
 
+        <FlexBetween>
+          const [query, setQuery] = useState('');
+          const [weather, setWeather] = useState({});
+ 
+  
+          const search = evt ={">"} {
+            if(evt.key === "Enter"){
+              fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+                .then(res => res.json())
+                .then(result => 
+                  {
+                    setWeather(result);
+                    setQuery('');
+                      console.log(result);
+                  });
+                }
+              }
+        </FlexBetween>
+        
 
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">

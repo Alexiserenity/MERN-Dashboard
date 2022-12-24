@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
 import {
+  Email,
+  PointOfSale,
+  PersonAdd,
+  Traffic,
+} from "@mui/icons-material";
+import {
   Box,
+  Button,
   Typography,
   useTheme,
   useMediaQuery,
@@ -71,6 +78,18 @@ const Dashboard = () => {
     }
   }
  
+  const dateBuilder = (d) => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+ 
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+ 
+    return `${day} ${date} ${month} ${year}`
+  }
+ 
 
 
 
@@ -136,12 +155,22 @@ const Dashboard = () => {
           value={data && data.totalCustomers}
           increase="+14%"
           description="Since last month"
+          icon={
+            <Email
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <StatBox
           title="Sales Today"
           value={data && data.todayStats.totalSales}
           increase="+21%"
           description="Since last week"
+          icon={
+            <PointOfSale
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <Box
           gridColumn="span 8"
@@ -157,12 +186,22 @@ const Dashboard = () => {
           value={data && data.thisMonthStats.totalSales}
           increase="+5%"
           description="Since last month"
+          icon={
+            <PersonAdd
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <StatBox
           title="Yearly Sales"
           value={data && data.yearlySalesTotal}
           increase="+43%"
           description="Since last year"
+          icon={
+            <Traffic
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
 
         {/* ROW 2 */}

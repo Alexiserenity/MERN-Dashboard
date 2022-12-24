@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
 import {
+  DownloadOutlined,
+  Email,
+  PointOfSale,
+  PersonAdd,
+  Traffic,
+  Search,
+} from "@mui/icons-material";
+import {
   Box,
+  Button,
   Typography,
   useTheme,
   useMediaQuery,
@@ -71,6 +80,18 @@ const Dashboard = () => {
     }
   }
  
+  const dateBuilder = (d) => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+ 
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+ 
+    return `${day} ${date} ${month} ${year}`
+  }
+ 
 
 
 
@@ -78,48 +99,40 @@ const Dashboard = () => {
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-        <Box>
-          <Toolbar>
-          
-          
- 
- 
- 
-   <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
-     <main>
-       <div className="search-box">
-         <input 
-           type="text"
-           className="search-bar"
-           placeholder="meteo location..."
-           onChange={e => setQuery(e.target.value)}
-           value={query}
-           onKeyPress={search}
-         />
-         
-       </div>
-       {(typeof weather.main != "undefined") ? (
-        <div>
-          <div className="location-box">
-            <div className="location">{weather.name}, {weather.sys.country}</div>
-            <div className="temp"> {Math.round(weather.main.temp)}°c </div>
-            <div className="weather">{weather.weather[0].main}</div>
-          </div>
-        </div>
-       ) : ('')}
-     </main>
-   </div>
- 
-
-
-
- 
-            
-          
-          </Toolbar>
-        </Box>
       </FlexBetween>
-
+      <FlexBetween>
+        <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app') : 'app'}>
+      <main>
+        <div className="search-box">
+          <input 
+            type="text"
+            className="search-bar"
+            placeholder="meteo location..."
+            onChange={e => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
+          />
+          
+        </div>
+        {(typeof weather.main != "undefined") ? (
+          <div>
+            <div className="location-box">
+              <div className="location">{weather.name}, {weather.sys.country}</div>
+              <div className="temp"> {Math.round(weather.main.temp)}°c </div>
+              <div className="weather">{weather.weather[0].main}</div>
+            </div>
+          </div>
+        ) : ('')}
+      </main>
+    </div>
+      </FlexBetween>
+          
+          
+ 
+ 
+ 
+   
+ 
       <Box
         mt="20px"
         display="grid"
@@ -136,12 +149,22 @@ const Dashboard = () => {
           value={data && data.totalCustomers}
           increase="+14%"
           description="Since last month"
+          icon={
+            <Email
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <StatBox
           title="Sales Today"
           value={data && data.todayStats.totalSales}
           increase="+21%"
           description="Since last week"
+          icon={
+            <PointOfSale
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <Box
           gridColumn="span 8"
@@ -157,12 +180,22 @@ const Dashboard = () => {
           value={data && data.thisMonthStats.totalSales}
           increase="+5%"
           description="Since last month"
+          icon={
+            <PersonAdd
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
         <StatBox
           title="Yearly Sales"
           value={data && data.yearlySalesTotal}
           increase="+43%"
           description="Since last year"
+          icon={
+            <Traffic
+              sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+            />
+          }
         />
 
         {/* ROW 2 */}

@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import FlexBetween from "components/FlexBetween";
 import Header from "components/Header";
 import {
+  Email,
+  PointOfSale,
+  PersonAdd,
+  Traffic,
+} from "@mui/icons-material";
+import {
   Box,
   Typography,
   useTheme,
