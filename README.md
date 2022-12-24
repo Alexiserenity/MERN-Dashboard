@@ -3,7 +3,7 @@ ING4 TD4 Alexis LAMAUDIERE & Adrien CEZA
 
 # Description
 
-Ce projet web a été réalisé selon la structure MERN (cliquez ur les liens pour les installer):
+Ce projet web a été réalisé selon la structure MERN (cliquez sur les liens pour les installer):
 - [MongoDB](https://www.mongodb.com/docs/manual/installation/)
 - ExpressJS
 - React
